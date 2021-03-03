@@ -185,14 +185,14 @@ public class LoopAssignmentLevel1 {
         }
     }
     public static  void main(String[] args) {
-        //printIntUsingLoop();
-        //printLeftTriangleShape();
-        //printDiamondShape();
-        //printInvertedPyramidShape();
-        //multiplicationTable();
-        //asciiValuesAndCharacter();
-       // calculateFactorial();
-        //PrintAvgAndProduct();
+        printIntUsingLoop();
+        printLeftTriangleShape();
+        printDiamondShape();
+        printInvertedPyramidShape();
+        multiplicationTable();
+        asciiValuesAndCharacter();
+        calculateFactorial();
+        PrintAvgAndProduct();
         infiniteLoop();
 
     }
