@@ -1,4 +1,4 @@
-package javaLearningsAndAssignments.InhertianceConcepts;
+package javaLearningsAndAssignments.InheritanceConcepts;
 
 public class Laptop {
 

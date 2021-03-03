@@ -1,4 +1,4 @@
-package javaLearningsAndAssignments.InhertianceConcepts;
+package javaLearningsAndAssignments.InheritanceConcepts;
 
  class LapTopChild extends Laptop {
     public LapTopChild(String Name, int Price, String Processor, int Ram, int HardDrive) {
