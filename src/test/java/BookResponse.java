@@ -1,7 +1,7 @@
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class GetBookResponse {
+public class BookResponse {
     String book_name;
     String isbn;
     String aisle;
@@ -18,7 +18,7 @@ public class GetBookResponse {
     public void setAisle(String aisle) {
         this.aisle = aisle;
     }
-@JsonProperty("author")
+   @JsonProperty("author")
     public void setAuthorname(String author_name) {
         this.author_name = author_name;
     }

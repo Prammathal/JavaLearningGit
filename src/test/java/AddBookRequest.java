@@ -6,7 +6,9 @@ public class AddBookRequest {
     String isbn;
     String aisle;
     String author_name;
-@JsonProperty("name")
+
+
+    @JsonProperty("name")
     public void setBook_name(String book_name) {
         this.book_name = book_name;
     }
