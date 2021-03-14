@@ -16,13 +16,13 @@ public class LoginPageTest extends BaseTest {
 
     @Test
     public void validateLoginSuccessTest() {
-        home=new HomePage(driver);
-        home.clickLoginLink();
-        login.openSpreeMainPage("prammathal02@gmail.com","Prammatooihal@02");
+      home=new HomePage(driver);
+      home.clickLoginLink();
+        login.openSpreeMainPage("prammathal02@gmail.com","Prammathal@02");
         spreemainpage=new SpreeMainPage(driver);
         Assert.assertEquals(spreemainpage.checkLoginSuccessMsg(),"Logged in successfully");
         spreemainpage.clickLogoutButton();
-        Assert.assertTrue(home.verifyLogOutMsg());
+        Assert.assertEquals(home.logOutMsg(),"Signed out successfully.");
     }
 
 
@@ -34,6 +34,16 @@ public class LoginPageTest extends BaseTest {
         login.openSpreeMainPage("prammathahffhl02@gmail.com","Prdgdg");
         String invalidLoginMsg=login.getInvalidLoginMsg();
         Assert.assertEquals(invalidLoginMsg,"Invalid email or password.");
+    }
+
+    @Test(priority=2)
+    public void validateLoginInvalidEmailTest()
+    {
+        home=new HomePage(driver);
+        home.clickLoginLink();
+        login.openSpreeMainPage("prammathahffhl02gmail.com","Prdgdg");
+        String invalidEmailLoginMsg=login.getInvalidEmailLoginMsg();
+        Assert.assertEquals(invalidEmailLoginMsg,"Please include an '@' in the email address. 'prammathahffhl02gmail.com' is missing an '@'.");
     }
 
 

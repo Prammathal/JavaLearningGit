@@ -21,8 +21,8 @@ public class HomePage extends BasePage{
         login.click();
     }
 
-    public boolean verifyLogOutMsg() {
-      return logoutMsg.isDisplayed();
+    public String logOutMsg() {
+      return logoutMsg.getText();
     }
 
 

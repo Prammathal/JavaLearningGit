@@ -2,6 +2,7 @@ package com.qa;
 
 import com.qa.Pages.HomePage;
 import com.qa.Pages.LoginPage;
+import com.qa.Pages.SpreeMainPage;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -34,44 +35,29 @@ public class BaseTest {
         driver.get("https://spree-vapasi.herokuapp.com/");
         driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(3, TimeUnit.SECONDS);
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
 
     }
 
-    public String[] readCsvFile() throws FileNotFoundException {
-        ArrayList<String> data = new ArrayList<>();
-        File textFile = new File("/Users/prammathalselvakumar/IdeaProjects/SampleMavenSpreeProject/src/test/TestData/TestData.txt");
-        Scanner in = new Scanner(textFile);
-        while(in.hasNext()){
-            String line = in.next();
-            data.add(line);
-        }
-        in.close();
-        String[] arr = new String[data.size()];
-        return data.toArray(arr);
-    }
     @BeforeTest
-    public void setUpLogin(ITestContext testContext)
+    public void setUp(ITestContext testContext)
     {
         initialize();
         login=new LoginPage(driver);
         testContext.setAttribute("webdriver", driver);
     }
-
     @AfterTest
     public void tearDown()
     {
         driver.quit();
     }
 
-
-    public void takeScreenshot() throws IOException
+    public void login(WebDriver driver)
     {
-    File src= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-    File screenShotName=new File("Screenshots/"+ new Timestamp(System.currentTimeMillis())+".png");
-     FileUtils.copyFile(src, screenShotName);
-     String filePath=screenShotName.toString();
-     //Reporter.log("<img src='"+filePath+"'");
+        home=new HomePage(driver);
+        home.clickLoginLink();
+        login=new LoginPage(driver);
+        login.openSpreeMainPage("prammathal02@gmail.com","Prammathal@02");
     }
 }
 

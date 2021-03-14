@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends BasePage {
-    @FindBy(id="spree_user_email")
+    @FindBy(xpath = "//input[@id='spree_user_email']")
     private  WebElement email;
     @FindBy(id = "spree_user_password")
     private  WebElement password;
@@ -21,10 +21,15 @@ public class LoginPage extends BasePage {
         super(driver);
     }
     public void openSpreeMainPage(String uname,String passwrd) {
+
        email.sendKeys(uname);
        password.sendKeys(passwrd);
        rememberMeCheckBox.click();
        loginButton.click();
+    }
+    public String getInvalidEmailLoginMsg()
+    {
+      return email.getAttribute("validationMessage");
     }
 
     public String getInvalidLoginMsg()
