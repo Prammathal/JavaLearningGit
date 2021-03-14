@@ -1,11 +1,22 @@
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+package BooksAPITest.ResponseModel;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class BookResponse {
+public class GetBookResponse {
     String book_name;
     String isbn;
     String aisle;
-    String author_name;
+    @JsonProperty("author")
+    String authorName;
+
+    String msg;
+
+    public String getMsg() {
+        return msg;
+    }
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
 
     public void setBook_name(String book_name) {
         this.book_name = book_name;
@@ -18,9 +29,9 @@ public class BookResponse {
     public void setAisle(String aisle) {
         this.aisle = aisle;
     }
-   @JsonProperty("author")
-    public void setAuthorname(String author_name) {
-        this.author_name = author_name;
+
+    public void setAuthorName(String authorName) {
+        this.authorName = authorName;
     }
 
     public String getBook_name() {
@@ -35,7 +46,9 @@ public class BookResponse {
         return aisle;
     }
 
-    public String getAuthorname() {
-        return author_name;
+    public String getAuthorName() {
+        return authorName;
     }
+
+
 }

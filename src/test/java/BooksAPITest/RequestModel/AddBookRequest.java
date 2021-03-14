@@ -1,14 +1,15 @@
+package BooksAPITest.RequestModel;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.testng.annotations.Test;
 
 public class AddBookRequest {
+    @JsonProperty("name")
     String book_name;
     String isbn;
     String aisle;
+    @JsonProperty("author")
     String author_name;
 
-
-    @JsonProperty("name")
     public void setBook_name(String book_name) {
         this.book_name = book_name;
     }
@@ -20,7 +21,7 @@ public class AddBookRequest {
     public void setAisle(String aisle) {
         this.aisle = aisle;
     }
-    @JsonProperty("author")
+
     public void setAuthor_name(String author_name) {
         this.author_name = author_name;
     }
